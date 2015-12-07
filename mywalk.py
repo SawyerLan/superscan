@@ -30,17 +30,20 @@ if __name__ == '__main__':
     start = time.time()
     filelist = list()
     topdir = list()
-    desdir= '/root/a/'
+    desdir= '/'
     alldir = list()
-    n = 3
     for i in os.listdir(desdir):
         topdir.append(desdir+i)
-    for i in range(n):
-        
-    topdir_1 = topdir[0:len(topdir)/n]
-    topdir_2 = topdir[len(topdir)/n:2*len(topdir)/n]
-    topdir_3 = topdir[2*len(topdir)/n:]
-    alldir = [topdir_1,topdir_2,topdir_3]
+    n,c = 1,0
+    while c <= n:
+       alldir.append(topdir[c*len(topdir)/n:(c+1)*len(topdir)/n] )
+       c = c + 1
+    #print alldir
+    #print len(alldir)
+    #topdir_1 = topdir[0:len(topdir)/n]
+    #topdir_2 = topdir[len(topdir)/n:2*len(topdir)/n]
+    #topdir_3 = topdir[2*len(topdir)/n:]
+    #alldir = [topdir_1,topdir_2,topdir_3]
     main()
     #for i in filelist:
     #    print i
