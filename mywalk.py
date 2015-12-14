@@ -34,19 +34,13 @@ if __name__ == '__main__':
     alldir = list()
     for i in os.listdir(desdir):
         topdir.append(desdir+i)
+    # n 为线程数,将topdir下的目录分为n份，n个线程进行调用scandir
+    # 经测试，多线程反而增加最终扫描时间。
     n,c = 1,0
     while c <= n:
        alldir.append(topdir[c*len(topdir)/n:(c+1)*len(topdir)/n] )
        c = c + 1
-    #print alldir
-    #print len(alldir)
-    #topdir_1 = topdir[0:len(topdir)/n]
-    #topdir_2 = topdir[len(topdir)/n:2*len(topdir)/n]
-    #topdir_3 = topdir[2*len(topdir)/n:]
-    #alldir = [topdir_1,topdir_2,topdir_3]
     main()
-    #for i in filelist:
-    #    print i
     print len(filelist)
     end = time.time()
     print "time = "+str(end-start) + " s"
